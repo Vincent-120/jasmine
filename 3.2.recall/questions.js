@@ -209,7 +209,7 @@ let squareRoot = (number) => {
 }
 
 let factorial = (number) => {
-     const Factorial= n => { 
+     let Factorial= n => { 
         if (n === 0) {  
             return 1;  
         } 
@@ -229,6 +229,6 @@ let convertToCelsius = (number) => {
 }
 
 let letterPosition = (array) => {
-    const Array = array.map(el => el.toLowerCase().charCodeAt() - 96);
-  return Array;;
+    let Array = array.map(el => el.toLowerCase().charCodeAt() - 96);
+  return Array;
 }
