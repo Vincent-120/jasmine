@@ -40,32 +40,41 @@ let addElementToBeginning = (array, element) => {
 }
 
 let sortByLastLetter = (array) => {
-    array.sort((a, b) => {
-    if (a.charAt(a.length - 1) < b.charAt(b.length - 1)) {
-      return -1;
+array.sort(function(a, b){
+    var lastA = a.charAt(a.length - 1);
+    var lastB = b.charAt(b.length - 1);
+    if (lastA > lastB) {
+        return 1;
+    } else if (lastA < lastB) {
+        return -1;
+    } else {
+        return 0;
     }
-    if (b.charAt(b.length - 1) > a.charAt(a.length - 1)) {
-      return 1;
-    }
-
-    return 0;
-  });
-  return array;
+});
+return array
 };
 
 let getFirstHalf = (string) => {
     return string.substring(0, Math.round(string.length / 2));
 }
 let makeNegative = (number) => {
-    return 'Write your method here';
+    return -Math.abs(number);
 }
 
 let numberOfPalindromes = (array) => {
-    return 'Write your method here';
+        const Palindrom = array.filter(element=> element ===element
+                                                                .split('')
+                                                                .reverse()
+                                                                .join(''));
+    return Palindrom.length
 }
 
 let shortestWord = (array) => {
-    return 'Write your method here';
+    for ( i = 0; i < array.length; i++ ){   // Looping through the array to find index
+        let length = array[i].length;    // Setting  variable 'length' as the length of an index in the array
+        let min = Math.min(...array.map(({ length }) => length));  // Setting variable 'min' to index in the array that's the shortest;
+        return min
+        }
 }
 
 let longestWord = (array) => {
