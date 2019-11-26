@@ -70,93 +70,165 @@ let numberOfPalindromes = (array) => {
 }
 
 let shortestWord = (array) => {
-    for ( i = 0; i < array.length; i++ ){   // Looping through the array to find index
-        let length = array[i].length;    // Setting  variable 'length' as the length of an index in the array
-        let min = Math.min(...array.map(({ length }) => length));  // Setting variable 'min' to index in the array that's the shortest;
-        return min
-        }
+    const newArray = array.sort((a, b) => a.length - b.length);
+  return newArray[0];
 }
 
 let longestWord = (array) => {
-    return 'Write your method here';
+    return array.sort(function(a, b) {return b.length - a.length})[0];;
 }
 
 let sumNumbers = (array) => {
-    return 'Write your method here';
+    let sum = 0;for (var i = 0; i < array.length; i++) {
+        sum += array[i]
+      };
+      return sum
 }
 
 let repeatElements = (array) => {
-    return 'Write your method here';
+     return array.concat(array)
 }
 
 let stringToNumber = (string) => {
-    return 'Write your method here';
+    let nbr = parseInt(string);
+    return nbr
 }
 
 let calculateAverage = (array) => {
-    return 'Write your method here';
+    const sum = array.reduce((acc, curr) => (acc += curr));
+    const result = sum / array.length;
+    return result;
 }
 
 let getElementsUntilGreaterThanFive = (array) => {
-    return 'Write your method here';
+    return array.slice(0, 6)
 }
 
 let convertArrayToObject = (array) => {
-    return 'Write your method here';
+    let keys = [];  
+    let values = [];
+    for (let i = 0; i < array.length; i += 2) {
+        keys.push(array[i]);
+    }
+    for (let i = 1; i < array.length; i += 2) {
+        values.push(array[i]);
+    }
+
+    let Obj = {};
+    keys.forEach((key, i) => (Obj[key] = values[i]));
+    return Obj;
 }
 
 let getAllLetters = (array) => {
-    return 'Write your method here';
-}
-
+    const letters = array.map(element => element.split(""));
+    const ofLetters = letters.flat();
+    const setofofLetters = new Set(ofLetters);
+    const ArrayOfLetters = Array.from(setofofLetters);
+    const sortedArrayOfLetters = ArrayOfLetters.sort();
+    return sortedArrayOfLetters;
+    }
 let swapKeysAndValues = (object) => {
-    return 'Write your method here';
+    let obj = Object.values(object)
+    let value = Object.keys(object)
+    const newObj= {};
+    obj.forEach((obj,i)=>(newObj[obj]=value[i]));
+    return newObj
 }
 
 let sumKeysAndValues = (object) => {
-    return 'Write your method here';
+    const key = Object.keys(object).map(Number);
+  const value = Object.values(object);
+  let sumValue = value.reduce((acc, val) => (acc += val));
+  let sumKey = key.reduce((acc, key) => (acc += key));
+  return sumValue + sumKey;
 }
 
 let removeCapitals = (string) => {
-    return 'Write your method here';
+    let letters = string.split("");
+    let filtered = letters.filter(letter => letter.match(/[a-z ]/))
+    const filteredString = filtered.join("");
+    return filteredString;
 }
 
 let roundUp = (number) => {
-    return 'Write your method here';
+    let result =Math.ceil(number);
+    return result;
 }
 
 let formatDateNicely = (date) => {
-    return 'Write your method here';
+    return date.toLocaleDateString("fr-FR")
 }
-
 let getDomainName = (string) => {
-    return 'Write your method here';
+    const domain = string.split("@")[1];
+  const filtered = domain.split(".");
+  const arrayFiltered = filtered.filter(
+    el => el != "com"
+  );
+  const joinedArry = arrayFiltered.join(".");
+  return joinedArry;
 }
 
 let titleize = (string) => {
-    return 'Write your method here';
+    const titleArray = string.split(" ");
+    const endArray = [];
+
+    titleArray.forEach(word => {
+    const wordArray = word.split("");
+    wordArray[0] = wordArray[0].toUpperCase();
+    const JoinedWord = wordArray.join("");
+    endArray.push(JoinedWord);
+    });
+
+    for (let i = 1; i < endArray.length; i++) {
+    if (endArray[i].length < 4) {
+        endArray[i] = endArray[i].toLowerCase();
+        }
+    }
+    let joinedArray = endArray.join(" ");
+
+    if (joinedArray.includes(".")) {
+        const char = joinedArray.charAt(joinedArray.indexOf(".") + 2);
+        joinedArray = joinedArray.replace(char, char.toUpperCase());
+    }
+  return joinedArray;
 }
 
 let checkForSpecialCharacters = (string) => {
-    return 'Write your method here';
+    let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+    if(format.test(string)){
+        return true;
+    }
+    else {
+        return false;
+    }  
 }
 
 let squareRoot = (number) => {
-    return 'Write your method here';
+    return Math.sqrt(number);
 }
 
 let factorial = (number) => {
-    return 'Write your method here';
-}
+     const Factorial= n => { 
+        if (n === 0) {  
+            return 1;  
+        } 
+        else {  
+            return n * Factorial(n - 1 );  
+        } 
+    }; 
+    return Factorial(number) 
+};
 
 let findAnagrams = (string) => {
-    return 'Write your method here';
+    //auncune solution trouver....
 }
 
 let convertToCelsius = (number) => {
-    return 'Write your method here';
+    return Math.round((number - 32) * 5/9);
 }
 
 let letterPosition = (array) => {
-    return 'Write your method here';
+    const Array = array.map(el => el.toLowerCase().charCodeAt() - 96);
+  return Array;;
 }
